@@ -4,6 +4,17 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  state = {
+    radio: false,
+    internet: true
+  };
+
+  handleCheck(checkProp, value) {
+    this.setState({
+      [checkProp]: value
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -13,8 +24,8 @@ class App extends Component {
         </div>
         <p className="App-intro">
           How did you hear about us:<br/>
-          Radio: <Checkbox checked={false}/><br/>
-          Internet: <Checkbox checked={true}/>
+          Radio: <Checkbox checked={this.state.radio} onCheck={this.handleCheck.bind(this, 'radio')}/><br/>
+          Internet: <Checkbox checked={this.state.internet} onCheck={this.handleCheck.bind(this, 'internet')}/>
         </p>
       </div>
     );

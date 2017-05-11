@@ -15,8 +15,8 @@ const CheckMarkDiv = styled.div`
   background-color: ${props => props.checked ? 'gray' : 'white'};
 `;
 
-const Checkbox = ({checked}) => (
-  <CheckboxDiv>
+const Checkbox = ({checked, onCheck}) => (
+  <CheckboxDiv onClick={() => onCheck(!checked)}>
     <CheckMarkDiv checked={checked}/>
   </CheckboxDiv>
 );
